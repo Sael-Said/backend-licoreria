@@ -3,7 +3,7 @@ services:
     name: backend-licoreria
     runtime: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "python run_migrations.py && python crear_admin.py && gunicorn SistemaLicoreria.wsgi:application"
+    startCommand: "gunicorn SistemaLicoreria.wsgi:application"
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: SistemaLicoreria.settings
