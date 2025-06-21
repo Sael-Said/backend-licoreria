@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: backend-licoreria
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn SistemaLicoreria.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: SistemaLicoreria.settings
+      - key: SECRET_KEY
+        value: django-insecure-d7l1aj$jz75+s9r%$dny$z_4hwj&1k@r&g(#@!uj8mek=hs30k
+      - key: DEBUG
+        value: "False"
+      - key: DATABASE_URL
+        value: postgresql://elparcero_db_user:NUFYBDC7qCyxvZ9tDhMx9AIveuHkUiL6@dpg-d1b2iije5dus73e5o4qg-a/elparcero_db
